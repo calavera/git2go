@@ -15,7 +15,6 @@ type CheckoutStrategy uint
 const (
 	CheckoutNone                      CheckoutStrategy = C.GIT_CHECKOUT_NONE                         // Dry run, no actual updates
 	CheckoutSafe                      CheckoutStrategy = C.GIT_CHECKOUT_SAFE                         // Allow safe updates that cannot overwrite uncommitted data
-	CheckoutSafeCreate                CheckoutStrategy = C.GIT_CHECKOUT_SAFE_CREATE                  // Allow safe updates plus creation of missing files
 	CheckoutForce                     CheckoutStrategy = C.GIT_CHECKOUT_FORCE                        // Allow all updates to force working directory to look like index
 	CheckoutAllowConflicts            CheckoutStrategy = C.GIT_CHECKOUT_ALLOW_CONFLICTS              // Allow checkout to make safe updates even if conflicts are found
 	CheckoutRemoveUntracked           CheckoutStrategy = C.GIT_CHECKOUT_REMOVE_UNTRACKED             // Remove untracked files not in index (that are not ignored)
@@ -29,6 +28,7 @@ const (
 	CheckoutUseTheirs                 CheckoutStrategy = C.GIT_CHECKOUT_USE_THEIRS                   // For unmerged files, checkout stage 3 from index (NOT IMPLEMENTED)
 	CheckoutUpdateSubmodules          CheckoutStrategy = C.GIT_CHECKOUT_UPDATE_SUBMODULES            // Recursively checkout submodules with same options (NOT IMPLEMENTED)
 	CheckoutUpdateSubmodulesIfChanged CheckoutStrategy = C.GIT_CHECKOUT_UPDATE_SUBMODULES_IF_CHANGED // Recursively checkout submodules if HEAD moved in super repo (NOT IMPLEMENTED)
+	CheckoutRecreateMissing           CheckoutStrategy = C.GIT_CHECKOUT_RECREATE_MISSING
 )
 
 type CheckoutOpts struct {
